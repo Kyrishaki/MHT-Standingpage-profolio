@@ -215,9 +215,9 @@ export const cvData: CVData = {
       demoUrl: "https://dntu-forum.vercel.app",
       githubUrl: "https://github.com/kyrishaki1105",
       stats: [
-        { label: "Quy mô nhóm", value: "3 Thành viên" },
+        { label: "Quy mô nhóm", value: "Nhóm 4 thành viên" },
         { label: "Thời gian triển khai", value: "09/2026 - 11/2026" },
-        { label: "Điểm Lighthouse", value: "98/100" },
+        { label: "Vai trò", value: "Team Lead & Fullstack" },
       ],
     },
     {

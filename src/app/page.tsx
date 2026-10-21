@@ -1,48 +1,34 @@
 "use client";
 
 import React from "react";
-import { Navbar } from "@/components/artcraft/Navbar";
-import { HeroSection } from "@/components/artcraft/HeroSection";
-import { MarqueeTicker } from "@/components/artcraft/MarqueeTicker";
-import { FeaturesSection } from "@/components/artcraft/FeaturesSection";
-import { OwnershipSection } from "@/components/artcraft/OwnershipSection";
-import { CommunitySection } from "@/components/artcraft/CommunitySection";
-import { GetStartedSection } from "@/components/artcraft/GetStartedSection";
-import { Footer } from "@/components/artcraft/Footer";
-import { RightHud } from "@/components/artcraft/RightHud";
+import { PortfolioNavbar } from "@/components/portfolio/PortfolioNavbar";
+import { PortfolioHero } from "@/components/portfolio/PortfolioHero";
+import { PortfolioTicker } from "@/components/portfolio/PortfolioTicker";
+import { PortfolioIntro } from "@/components/portfolio/PortfolioIntro";
+import { PortfolioSkills } from "@/components/portfolio/PortfolioSkills";
+import { PortfolioProjects } from "@/components/portfolio/PortfolioProjects";
+import { PortfolioEducation } from "@/components/portfolio/PortfolioEducation";
+import { PortfolioPersonality } from "@/components/portfolio/PortfolioPersonality";
+import { PortfolioContact } from "@/components/portfolio/PortfolioContact";
+import { PortfolioFooter } from "@/components/portfolio/PortfolioFooter";
+import { PortfolioRightHud } from "@/components/portfolio/PortfolioRightHud";
 
-export default function ArtCraftLandingPage() {
+export default function HomePage() {
   return (
-    <div className="relative min-h-screen bg-bg text-ink selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
-      {/* Sticky Main Navigation */}
-      <Navbar />
-
-      {/* Main Content Sections */}
-      <main id="main" className="xl:pr-32">
-        {/* Section 00: Hero with Radar Spiral & Floating Cards */}
-        <HeroSection />
-
-        {/* Technical Marquee Feature Ticker */}
-        <MarqueeTicker />
-
-        {/* Section 01: Crafting Features (8 Modules) */}
-        <FeaturesSection />
-
-        {/* Section 02: Ownership & Open Source (3 Columns) */}
-        <OwnershipSection />
-
-        {/* Section 03: Community Proof Films */}
-        <CommunitySection />
-
-        {/* Section 04: Bottom CTA */}
-        <GetStartedSection />
-
-        {/* 5-Column Editorial Footer */}
-        <Footer />
+    <div className="relative min-h-screen bg-bg text-ink transition-colors duration-200">
+      <PortfolioNavbar />
+      <main className="relative">
+        <PortfolioHero />
+        <PortfolioTicker />
+        <PortfolioIntro />
+        <PortfolioSkills />
+        <PortfolioProjects />
+        <PortfolioEducation />
+        <PortfolioPersonality />
+        <PortfolioContact />
       </main>
-
-      {/* Right HUD Scroll Progress & Section Spy */}
-      <RightHud />
+      <PortfolioFooter />
+      <PortfolioRightHud />
     </div>
   );
 }

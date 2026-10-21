@@ -39,24 +39,22 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://getartcraft.com"),
-  title: "ArtCraft — Controllable AI for Artists",
+  title: "MAI HOÀNG TUẤN — Fullstack Developer | Standing Page Portfolio",
   description:
-    "ArtCraft is the open-source desktop app for generating AI video and images — built for artists who want real control.",
+    "Hồ sơ năng lực & Portfolio trực tuyến của Mai Hoàng Tuấn — Lập trình viên Fullstack tốt nghiệp ĐH Công Nghệ Đồng Nai (DNTU). Chuyên sâu Next.js, ASP.NET Core MVC, SQL Server và Supabase.",
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://getartcraft.com",
-    title: "ArtCraft — Controllable AI for Artists",
+    locale: "vi_VN",
+    title: "MAI HOÀNG TUẤN — Fullstack Developer | Portfolio",
     description:
-      "ArtCraft is the open-source desktop app for generating AI video and images — built for artists who want real control.",
-    siteName: "ArtCraft",
+      "Hồ sơ năng lực & Portfolio trực tuyến của Mai Hoàng Tuấn — Lập trình viên Fullstack tốt nghiệp ĐH Công Nghệ Đồng Nai (DNTU).",
+    siteName: "Mai Hoàng Tuấn Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ArtCraft — Controllable AI for Artists",
+    title: "MAI HOÀNG TUẤN — Fullstack Developer | Portfolio",
     description:
-      "ArtCraft is the open-source desktop app for generating AI video and images — built for artists who want real control.",
+      "Hồ sơ năng lực & Portfolio trực tuyến của Mai Hoàng Tuấn — Lập trình viên Fullstack tốt nghiệp ĐH Công Nghệ Đồng Nai.",
   },
   icons: {
     icon: "/artcraft-icon.svg",
