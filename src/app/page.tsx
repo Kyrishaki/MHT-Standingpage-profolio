@@ -215,13 +215,13 @@ export default function PortfolioPage() {
               </span>
 
               <a
-                href="https://github.com/kyrishaki1105"
+                href="https://github.com/Kyrishaki"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[var(--line)] bg-[var(--bg-card)] text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] transition-colors"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
-                <span>@kyrishaki1105</span>
+                <span>@Kyrishaki</span>
                 <ArrowUpRight className="w-3 h-3 text-[var(--text-muted)]" />
               </a>
             </div>
@@ -463,12 +463,12 @@ export default function PortfolioPage() {
                   <div className="flex items-center gap-2.5">
                     <GithubIcon className="w-4 h-4 text-[var(--cv-red)] shrink-0" />
                     <a
-                      href="https://github.com/kyrishaki1105"
+                      href="https://github.com/Kyrishaki"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-semibold text-[var(--text-primary)] hover:underline flex items-center gap-1"
                     >
-                      <span>@kyrishaki1105</span>
+                      <span>@Kyrishaki</span>
                       <ArrowUpRight className="w-3 h-3 text-[var(--text-muted)]" />
                     </a>
                   </div>

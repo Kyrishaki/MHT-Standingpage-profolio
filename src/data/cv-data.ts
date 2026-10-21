@@ -86,8 +86,8 @@ export const cvData: CVData = {
     location: "Biên Hòa, Đồng Nai",
     phone: "0865846074",
     email: "mhtuan.work@gmail.com",
-    socialHandle: "@kyrishaki1105",
-    github: "https://github.com/kyrishaki1105",
+    socialHandle: "@Kyrishaki",
+    github: "https://github.com/Kyrishaki",
   },
   education: {
     institution: "Trường Đại học Công Nghệ Đồng Nai",
@@ -213,7 +213,7 @@ export const cvData: CVData = {
         },
       ],
       demoUrl: "https://dntu-forum.vercel.app",
-      githubUrl: "https://github.com/kyrishaki1105",
+      githubUrl: "https://github.com/Kyrishaki",
       stats: [
         { label: "Quy mô nhóm", value: "Nhóm 4 thành viên" },
         { label: "Thời gian triển khai", value: "09/2026 - 11/2026" },
@@ -255,7 +255,7 @@ export const cvData: CVData = {
         },
       ],
       demoUrl: "https://dntu-forum.vercel.app",
-      githubUrl: "https://github.com/kyrishaki1105",
+      githubUrl: "https://github.com/Kyrishaki",
       stats: [
         { label: "Thời gian làm", value: "09/2026 - 11/2026" },
         { label: "Vai trò", value: "Wordpress Dev" },
@@ -306,7 +306,7 @@ export const cvData: CVData = {
         },
       ],
       demoUrl: "https://dntu-forum.vercel.app",
-      githubUrl: "https://github.com/kyrishaki1105",
+      githubUrl: "https://github.com/Kyrishaki",
       stats: [
         { label: "Thời gian làm", value: "08/2025 - 11/2025" },
         { label: "Điểm đánh giá", value: "Điểm 8/10" },
