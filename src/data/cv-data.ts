@@ -28,7 +28,6 @@ export interface SkillCategory {
   items: {
     name: string;
     level?: string;
-    icon?: string;
     highlight?: boolean;
   }[];
 }
@@ -53,11 +52,14 @@ export interface CVData {
     major: string;
     period: string;
     languageProficiency: string;
+    ieltsScore: string;
     notes: string;
   };
   skills: {
     languages: string[];
+    database: string[];
     frameworksAndTools: string[];
+    softSkills: string[];
     categories: SkillCategory[];
   };
   projects: ProjectDetail[];
@@ -88,61 +90,65 @@ export const cvData: CVData = {
     github: "https://github.com/kyrishaki1105",
   },
   education: {
-    institution: "Trường Đại học Công nghệ Đồng Nai",
+    institution: "Trường Đại học Công Nghệ Đồng Nai",
     degree: "Cử nhân",
     major: "Công nghệ thông tin",
     period: "2022 - 2026",
     languageProficiency: "Tiếng Anh — Trình độ B2",
-    notes: "Tập trung chuyên sâu về Kiến trúc phần mềm, Phát triển Web Fullstack và Hệ thống phân tán.",
+    ieltsScore: "IELTS 5.5",
+    notes: "Tập trung chuyên sâu về Kiến trúc phần mềm, Lập trình ứng dụng phân tán và Công nghệ Web.",
   },
   skills: {
-    languages: [
-      "TypeScript",
-      "JavaScript",
-      "C#",
-      "Java",
-      "C++",
-      "HTML5",
-      "CSS3",
-    ],
+    languages: ["C++", "C#", "Java", "HTML", "CSS", "JS/TS"],
+    database: ["SQL Server", "Supabase (PostgreSQL)"],
     frameworksAndTools: [
       "Next.js",
       "ASP.NET Core MVC",
       "React Native",
       "Tailwind CSS",
-      "Supabase",
+      "Wordpress",
       "Vercel",
     ],
+    softSkills: ["Làm việc nhóm", "Thích nghi nhanh", "Tư duy phân tích"],
     categories: [
       {
         category: "Ngôn ngữ lập trình",
-        description: "Tư duy thuật toán vững chắc và kiểm soát kiểu dữ liệu nghiêm ngặt",
+        description: "Nền tảng thuật toán hướng đối tượng vững chắc và lập trình web hiện đại",
         items: [
-          { name: "TypeScript / JavaScript", highlight: true },
+          { name: "JS/TS", highlight: true },
           { name: "C#", highlight: true },
           { name: "Java", highlight: false },
           { name: "C++", highlight: false },
-          { name: "HTML5 & CSS3", highlight: false },
+          { name: "HTML & CSS", highlight: false },
         ],
       },
       {
-        category: "Frameworks & Nền tảng",
-        description: "Hệ sinh thái hiện đại tối ưu hiệu năng và trải nghiệm người dùng",
+        category: "Cơ sở dữ liệu (Database)",
+        description: "Thiết kế quan hệ dữ liệu, truy vấn tối ưu và hệ thống realtime",
+        items: [
+          { name: "SQL Server", highlight: true },
+          { name: "Supabase (PostgreSQL)", highlight: true },
+        ],
+      },
+      {
+        category: "Frameworks & Công nghệ",
+        description: "Hệ sinh thái Microsoft và JavaScript Fullstack hiện đại",
         items: [
           { name: "Next.js (App Router)", highlight: true },
           { name: "ASP.NET Core MVC", highlight: true },
+          { name: "Wordpress", highlight: false },
           { name: "React Native", highlight: false },
           { name: "Tailwind CSS", highlight: true },
+          { name: "Vercel", highlight: true },
         ],
       },
       {
-        category: "Backend, Database & Cloud",
-        description: "Triển khai dịch vụ đám mây, cơ sở dữ liệu thời gian thực và tự động hóa CI/CD",
+        category: "Kỹ năng cá nhân",
+        description: "Năng lực làm việc nhóm và phẩm chất phát triển bền vững",
         items: [
-          { name: "Supabase (PostgreSQL)", highlight: true },
-          { name: "Vercel Platform", highlight: true },
-          { name: "RESTful API Architecture", highlight: false },
-          { name: "Git & Version Control", highlight: false },
+          { name: "Làm việc nhóm", highlight: true },
+          { name: "Thích nghi nhanh", highlight: true },
+          { name: "Tư duy phân tích", highlight: true },
         ],
       },
     ],
@@ -151,15 +157,15 @@ export const cvData: CVData = {
     {
       id: "dntu-forum",
       title: "DNTU-FORUM",
-      subtitle: "Nền tảng mạng xã hội sinh viên & Tiện ích học đường thông minh",
-      role: "Fullstack Developer",
+      subtitle: "Nền tảng web cộng đồng sinh viên & Tiện ích học đường thông minh",
+      role: "Fullstack Developer (Team Leader)",
       period: "09/2026 - 11/2026",
       isFeatured: true,
       highlight: "Dự án tâm huyết và thời gian làm lâu nhất",
       summary:
-        "Nền tảng web cộng đồng toàn diện dành riêng cho sinh viên với đầy đủ hệ sinh thái: diễn đàn hỏi đáp, marketplace đồ cũ, tìm trọ, tra cứu xe buýt và kết nối câu lạc bộ.",
+        "Quản lý và hợp tác với 3 thành viên để tập luyện cách quản lý nhóm và xây dựng hoàn thiện một dự án web cộng đồng toàn diện tích hợp hỏi đáp, chợ đồ cũ, tìm trọ, xe buýt và câu lạc bộ.",
       description:
-        "DNTU-FORUM được thiết kế và xây dựng như một hub thông tin duy nhất giải quyết tất cả nhu cầu học tập và sinh hoạt của sinh viên. Hệ thống kết hợp kiến trúc Next.js App Router hiệu năng cao cùng backend Supabase xử lý realtime, xác thực phân quyền và lưu trữ đám mây.",
+        "DNTU-FORUM là dự án tâm huyết quy mô nhất của tôi, nơi tôi đảm nhiệm vai trò Fullstack Developer kiêm điều phối nhóm 3 thành viên. Hệ thống giải quyết các bài toán thiết thực cho sinh viên bằng kiến trúc Next.js App Router kết hợp cơ sở dữ liệu Supabase Realtime, bảo mật RLS và triển khai tự động trên Vercel.",
       features: [
         {
           title: "Thảo luận & Hỏi đáp (Q&A)",
@@ -202,40 +208,133 @@ export const cvData: CVData = {
           items: ["Supabase", "PostgreSQL", "Row Level Security (RLS)", "Edge Functions"],
         },
         {
-          category: "Deployment & DevOps",
-          items: ["Vercel CI/CD", "Edge CDN", "Automated Analytics"],
+          category: "Deployment & Team",
+          items: ["Vercel CI/CD", "Team Git Flow (3 thành viên)", "Edge CDN"],
         },
       ],
       demoUrl: "https://dntu-forum.vercel.app",
       githubUrl: "https://github.com/kyrishaki1105",
       stats: [
-        { label: "Mô-đun chức năng", value: "5+ Phân hệ chính" },
-        { label: "Thời gian triển khai", value: "3 Tháng chuyên sâu" },
+        { label: "Quy mô nhóm", value: "3 Thành viên" },
+        { label: "Thời gian triển khai", value: "09/2026 - 11/2026" },
         { label: "Điểm Lighthouse", value: "98/100" },
+      ],
+    },
+    {
+      id: "veg4t",
+      title: "Veg4t",
+      subtitle: "Website Nội Dung & Thương Mại Điện Tử WordPress",
+      role: "Wordpress Developer",
+      period: "09/2026 - 11/2026",
+      isFeatured: false,
+      highlight: "Làm quen và sử dụng thuần thục WordPress CMS",
+      summary:
+        "Dự án thực tế rèn luyện kỹ năng xây dựng, tùy biến theme và quản trị website trên hệ thống mã nguồn mở WordPress phục vụ phân phối nội dung và kinh doanh sản phẩm.",
+      description:
+        "Trong dự án Veg4t, tôi đã nghiên cứu sâu về kiến trúc WordPress CMS, từ cấu hình cơ sở dữ liệu MySQL, tối ưu tốc độ tải trang, tùy biến child-theme đến việc tích hợp các plugin quản trị và bảo mật. Dự án giúp tôi làm chủ toàn diện quy trình triển khai nhanh website cho khách hàng.",
+      features: [
+        {
+          title: "Quản trị nội dung chuyên nghiệp",
+          description: "Cấu hình danh mục sản phẩm, bài viết blog chuẩn SEO và giao diện thân thiện với thiết bị di động.",
+          icon: "Layers",
+        },
+        {
+          title: "Tối ưu hóa tốc độ & Cache",
+          description: "Áp dụng các kỹ thuật nén ảnh WebP, tối ưu asset CSS/JS và thiết lập bộ nhớ đệm hiệu quả.",
+          icon: "Zap",
+        },
+      ],
+      techStack: [
+        {
+          category: "Platform",
+          items: ["WordPress", "PHP", "MySQL", "CSS3 / HTML5"],
+        },
+        {
+          category: "Tools & SEO",
+          items: ["Yoast SEO", "WooCommerce", "LiteSpeed Cache"],
+        },
+      ],
+      demoUrl: "https://dntu-forum.vercel.app",
+      githubUrl: "https://github.com/kyrishaki1105",
+      stats: [
+        { label: "Thời gian làm", value: "09/2026 - 11/2026" },
+        { label: "Vai trò", value: "Wordpress Dev" },
+        { label: "Mục tiêu", value: "Thuần thục CMS" },
+      ],
+    },
+    {
+      id: "web-mvc",
+      title: "WEB MVC (Microsoft Tech)",
+      subtitle: "Hệ thống Web Kiến trúc ASP.NET Core MVC & SQL Server",
+      role: "Fullstack Developer",
+      period: "08/2025 - 11/2025",
+      isFeatured: false,
+      highlight: "Dự án hoàn thiện theo công nghệ Microsoft đạt điểm 8",
+      summary:
+        "Xây dựng hoàn thiện 1 dự án phần mềm dựa theo toàn bộ ngăn xếp công nghệ của Microsoft (ASP.NET Core MVC, Entity Framework, SQL Server) và đạt điểm số 8 xuất sắc.",
+      description:
+        "Dự án được phát triển theo mô hình MVC (Model-View-Controller) chặt chẽ, áp dụng kiến trúc đa tầng (Multi-tier Architecture), thiết kế cơ sở dữ liệu quan hệ trên Microsoft SQL Server, chuẩn hóa ràng buộc dữ liệu và xử lý bảo mật phân quyền tài khoản người dùng.",
+      features: [
+        {
+          title: "Kiến trúc ASP.NET Core MVC",
+          description: "Tách bạch rõ ràng Controller, View và Model, hỗ trợ Dependency Injection và xử lý nghiệp vụ tin cậy.",
+          icon: "Cpu",
+        },
+        {
+          title: "Cơ sở dữ liệu SQL Server",
+          description: "Thiết kế schema chuẩn hóa (3NF), viết Stored Procedures tối ưu hóa và tương tác qua Entity Framework Core.",
+          icon: "Database",
+        },
+        {
+          title: "Đạt thành tích Điểm 8",
+          description: "Được hội đồng giảng viên đánh giá cao về tính hoàn thiện, mã nguồn sạch và khả năng vận hành ổn định.",
+          icon: "Award",
+        },
+      ],
+      techStack: [
+        {
+          category: "Backend",
+          items: ["C#", "ASP.NET Core MVC", ".NET Core", "Entity Framework"],
+        },
+        {
+          category: "Database",
+          items: ["Microsoft SQL Server", "T-SQL", "Stored Procedures"],
+        },
+        {
+          category: "Frontend",
+          items: ["Razor Views", "Bootstrap / CSS3", "JavaScript"],
+        },
+      ],
+      demoUrl: "https://dntu-forum.vercel.app",
+      githubUrl: "https://github.com/kyrishaki1105",
+      stats: [
+        { label: "Thời gian làm", value: "08/2025 - 11/2025" },
+        { label: "Điểm đánh giá", value: "Điểm 8/10" },
+        { label: "Hệ sinh thái", value: "Microsoft .NET" },
       ],
     },
   ],
   hobbies: [
     {
       name: "Cầu lông",
-      description: "Rèn luyện thể lực, phản xạ nhanh và tinh thần chiến thuật đồng đội trên sân đấu.",
+      description: "Rèn luyện thể lực, phản xạ nhanh nhẹn và tinh thần đồng đội chiến thuật trên sân đấu.",
       iconName: "Activity",
     },
     {
       name: "Lập trình",
-      description: "Đam mê khám phá công nghệ mới, xây dựng các side project giải quyết vấn đề thực tế.",
+      description: "Đam mê sáng tạo công nghệ mới, xây dựng các dự án web giải quyết vấn đề thực tế.",
       iconName: "Code2",
     },
     {
       name: "Chụp ảnh",
-      description: "Lưu giữ góc nhìn thẩm mỹ, chi tiết ánh sáng và cảm xúc của nhịp sống xung quanh.",
+      description: "Ghi lại góc nhìn nghệ thuật, chi tiết ánh sáng và khoảnh khắc chân thực của cuộc sống.",
       iconName: "Camera",
     },
   ],
   quickStats: [
-    { label: "Niên khóa", value: "2022-2026", detail: "ĐH Công nghệ Đồng Nai" },
-    { label: "Dự án trọng điểm", value: "DNTU-FORUM", detail: "Fullstack Web Platform" },
-    { label: "Ngoại ngữ", value: "Tiếng Anh B2", detail: "Giao tiếp & Tài liệu kỹ thuật" },
-    { label: "Trạng thái", value: "Open to Work", detail: "Fullstack / Frontend / Backend" },
+    { label: "Niên khóa", value: "2022 - 2026", detail: "ĐH Công Nghệ Đồng Nai" },
+    { label: "Dự án chính", value: "DNTU-FORUM", detail: "Team Leader & Fullstack" },
+    { label: "Ngoại ngữ", value: "B2 (IELTS 5.5)", detail: "Tài liệu kỹ thuật & Giao tiếp" },
+    { label: "Trạng thái", value: "Open to Work", detail: "Sẵn sàng làm việc" },
   ],
 };

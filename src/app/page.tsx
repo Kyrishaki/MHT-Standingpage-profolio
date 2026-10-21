@@ -39,8 +39,8 @@ export default function HomePage() {
     };
   }, []);
 
-  const handleOpenProjectDrawer = () => {
-    setSelectedProject(cvData.projects[0]);
+  const handleOpenProjectDrawer = (project?: ProjectDetail) => {
+    setSelectedProject(project || cvData.projects[0]);
     setIsDrawerOpen(true);
   };
 

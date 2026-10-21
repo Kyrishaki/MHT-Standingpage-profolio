@@ -96,7 +96,7 @@ export function AvatarHero({
         </div>
 
         {/* Inner Avatar Frame */}
-        <div className="relative w-[92%] h-[92%] rounded-full overflow-hidden border-2 border-zinc-800/90 shadow-2xl bg-zinc-950">
+        <div className="relative w-[92%] h-[92%] rounded-full overflow-hidden border-2 border-zinc-800/90 shadow-2xl bg-gradient-to-b from-zinc-800 via-zinc-900 to-orange-950/40">
           {!imageError ? (
             <Image
               src={avatarUrl}
@@ -104,7 +104,7 @@ export function AvatarHero({
               fill
               sizes="(max-width: 768px) 256px, 288px"
               priority
-              className="object-cover transition-transform duration-500 group-hover:scale-108"
+              className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
               onError={() => setImageError(true)}
             />
           ) : (
