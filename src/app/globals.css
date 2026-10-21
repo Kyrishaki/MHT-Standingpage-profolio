@@ -1,54 +1,50 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f2f1ee;
-  --bg-raised: #faf9f7;
-  --bg-sunken: #e9e8e4;
-  --ink: #101014;
-  --ink-strong: #000000;
-  --muted: rgba(16, 16, 20, 0.62);
-  --faint: rgba(16, 16, 20, 0.42);
-  --line: rgba(16, 16, 20, 0.14);
-  --line-strong: rgba(16, 16, 20, 0.4);
-  --accent: #2d81ff;
-  --accent-ink: #1659c4;
-  --invert-bg: #101014;
-  --invert-fg: #f2f1ee;
-  --danger: #b3261e;
-  --scanline: rgba(16, 16, 20, 0.03);
+  --bg: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-raised: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --line: #cbd5e1;
+  --line-light: #e2e8f0;
+  --cv-red: #a81d24;
+  --cv-red-dark: #881318;
+  --cv-coral: #ea580c;
+  --cv-blue: #1e40af;
+  --cv-teal: #0891b2;
 }
 
 [data-theme="dark"],
 html.dark {
-  --bg: #0b0b0c;
-  --bg-raised: #141416;
-  --bg-sunken: #060607;
-  --ink: #f0eff1;
-  --ink-strong: #ffffff;
-  --muted: rgba(240, 239, 241, 0.62);
-  --faint: rgba(240, 239, 241, 0.42);
-  --line: rgba(240, 239, 241, 0.14);
-  --line-strong: rgba(240, 239, 241, 0.4);
-  --accent: #3b82f6;
-  --accent-ink: #60a5fa;
-  --invert-bg: #f0eff1;
-  --invert-fg: #0b0b0c;
-  --danger: #ef4444;
-  --scanline: rgba(255, 255, 255, 0.03);
+  --bg: #090d16;
+  --bg-card: #0f172a;
+  --bg-raised: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --line: #334155;
+  --line-light: #1e293b;
+  --cv-red: #ef4444;
+  --cv-red-dark: #dc2626;
+  --cv-coral: #f97316;
+  --cv-blue: #3b82f6;
+  --cv-teal: #06b6d4;
 }
 
 html {
   scroll-behavior: smooth;
   background-color: var(--bg);
-  color: var(--ink);
+  color: var(--text-primary);
 }
 
 body {
   background-color: var(--bg);
-  color: var(--ink);
-  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-primary);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Typography tokens */
@@ -59,61 +55,10 @@ body {
 .font-editorial {
   font-family: var(--font-instrument), Georgia, serif;
   font-style: italic;
-  font-weight: 400;
 }
 
 .font-mono-hud {
   font-family: var(--font-geist-mono), monospace;
-}
-
-.hud-label {
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 700;
-}
-
-/* Common border utilities */
-.border-line {
-  border-color: var(--line);
-}
-
-.border-line-strong {
-  border-color: var(--line-strong);
-}
-
-/* Background utilities */
-.bg-bg {
-  background-color: var(--bg);
-}
-
-.bg-raised {
-  background-color: var(--bg-raised);
-}
-
-.bg-sunken {
-  background-color: var(--bg-sunken);
-}
-
-.bg-invert-bg {
-  background-color: var(--invert-bg);
-}
-
-.text-invert-fg {
-  color: var(--invert-fg);
-}
-
-.text-ink {
-  color: var(--ink);
-}
-
-.text-muted {
-  color: var(--muted);
-}
-
-.text-faint {
-  color: var(--faint);
 }
 
 /* Custom scrollbar */
@@ -126,53 +71,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--line-strong);
+  background: var(--line);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--ink);
-}
-
-/* Lenis smooth scrolling styles */
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-/* Marquee Animation */
-@keyframes marqueeScroll {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marqueeScroll 35s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-
-/* Radar rotation */
-@keyframes radarSlow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-radar-spin {
-  animation: radarSlow 120s linear infinite;
+  background: var(--text-muted);
 }
