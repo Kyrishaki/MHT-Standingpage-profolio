@@ -241,11 +241,11 @@ export default function PortfolioPage() {
               {/* Photo with rounded rectangular border outline */}
               <div className="relative z-10 w-full h-full rounded-3xl border-2 border-[var(--line)] bg-transparent overflow-hidden shadow-lg">
                 <Image
-                  src="/avatar.png"
+                  src="/avatar.jpg"
                   alt="Mai Hoàng Tuấn - Fullstack Developer"
                   fill
                   priority
-                  className="object-cover object-top"
+                  className="object-cover object-[center_18%]"
                   sizes="(max-width: 768px) 280px, 320px"
                 />
               </div>
@@ -528,13 +528,34 @@ export default function PortfolioPage() {
                     </p>
 
                     {/* DNTU-FORUM Preview Image */}
-                    <div className="relative w-full h-44 sm:h-52 rounded-xl overflow-hidden border border-[var(--line-light)] mb-3 bg-[var(--bg-raised)]">
+                    <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-[var(--line-light)] mb-3 bg-slate-100 dark:bg-slate-800 shadow-sm group">
                       <Image
                         src="/dntu-forum-preview.png"
-                        alt="DNTU-FORUM preview"
+                        alt="Giao diện thực tế diễn đàn sinh viên DNTU-FORUM"
                         fill
-                        className="object-cover object-top"
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                        sizes="(max-width: 1024px) 100vw, 650px"
                       />
+                    </div>
+
+                    {/* Verified Metrics from real app */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3 text-center">
+                      <div className="p-2 rounded-lg bg-[var(--bg-raised)] border border-[var(--line-light)]">
+                        <div className="text-[10px] text-[var(--text-muted)] font-medium">CHỦ ĐỀ</div>
+                        <div className="text-xs font-bold text-[var(--text-primary)]">13 Chủ đề</div>
+                      </div>
+                      <div className="p-2 rounded-lg bg-[var(--bg-raised)] border border-[var(--line-light)]">
+                        <div className="text-[10px] text-[var(--text-muted)] font-medium">BÀI VIẾT</div>
+                        <div className="text-xs font-bold text-[var(--text-primary)]">22 Thảo luận</div>
+                      </div>
+                      <div className="p-2 rounded-lg bg-[var(--bg-raised)] border border-[var(--line-light)]">
+                        <div className="text-[10px] text-[var(--text-muted)] font-medium">QUY MÔ</div>
+                        <div className="text-xs font-bold text-[var(--text-primary)]">Nhóm 4 TV</div>
+                      </div>
+                      <div className="p-2 rounded-lg bg-[var(--bg-raised)] border border-[var(--line-light)]">
+                        <div className="text-[10px] text-[var(--text-muted)] font-medium">KẾT NỐI</div>
+                        <div className="text-xs font-bold text-[var(--cv-teal)]">Realtime Sync</div>
+                      </div>
                     </div>
 
                     {/* Tech tags */}
