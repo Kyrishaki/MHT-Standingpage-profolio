@@ -229,7 +229,7 @@ export default function PortfolioPage() {
 
           {/* Right: Portrait with the authentic CV orange/coral halo arch */}
           <div className="lg:col-span-4 flex justify-center lg:justify-end">
-            <div className="relative w-64 h-80 sm:w-72 sm:h-92">
+            <div className="relative w-64 sm:w-72 aspect-[395/575]">
               {/* Warm Orange-Coral Circle Halo Background from CV */}
               <div
                 className="absolute inset-x-2 top-4 bottom-8 rounded-full opacity-90"
@@ -245,7 +245,7 @@ export default function PortfolioPage() {
                   alt="Mai Hoàng Tuấn - Fullstack Developer"
                   fill
                   priority
-                  className="object-cover object-[center_18%]"
+                  className="object-cover object-center"
                   sizes="(max-width: 768px) 280px, 320px"
                 />
               </div>
