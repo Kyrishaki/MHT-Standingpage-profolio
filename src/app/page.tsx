@@ -11,8 +11,6 @@ import {
   MapPin,
   ExternalLink,
   ArrowUpRight,
-  Menu,
-  X,
   Copy,
   Check,
 } from "lucide-react";
@@ -21,7 +19,6 @@ import { cvData } from "@/data/cv-data";
 
 export default function PortfolioPage() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [copiedType, setCopiedType] = useState<string | null>(null);
 
   useEffect(() => {
@@ -48,119 +45,17 @@ export default function PortfolioPage() {
 
   return (
     <div className="min-h-screen bg-[var(--bg)] text-[var(--text-primary)] transition-colors duration-200">
-      {/* ==================== 1. TOP NAVBAR ==================== */}
-      <header className="sticky top-0 z-50 w-full bg-[var(--bg)]/90 backdrop-blur-md border-b border-[var(--line-light)]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Link href="#top" className="flex items-center gap-2 group">
-            <span className="font-display font-black text-xl tracking-tight text-[var(--text-primary)]">
-              MAI HOÀNG TUẤN
-            </span>
-            <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-[var(--cv-red)]" />
-            <span className="hidden sm:inline-block text-xs font-medium text-[var(--text-secondary)] uppercase tracking-wider">
-              Fullstack Developer
-            </span>
-          </Link>
+      {/* Floating Theme Toggle in Bottom-Right */}
+      <button
+        onClick={toggleTheme}
+        aria-label="Chuyển chế độ sáng/tối"
+        className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full border border-[var(--line)] bg-[var(--bg-card)] shadow-lg flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] hover:scale-105 transition-all"
+        title="Chuyển chế độ Sáng / Tối"
+      >
+        {theme === "dark" ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-700" />}
+      </button>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-[var(--text-secondary)]">
-            <a href="#about" className="hover:text-[var(--cv-red)] transition-colors">
-              Giới thiệu
-            </a>
-            <a href="#skills" className="hover:text-[var(--cv-red)] transition-colors">
-              Kỹ năng
-            </a>
-            <a href="#experience" className="hover:text-[var(--cv-red)] transition-colors">
-              Kinh nghiệm
-            </a>
-            <a href="#education" className="hover:text-[var(--cv-red)] transition-colors">
-              Học vấn
-            </a>
-            <a href="#personality" className="hover:text-[var(--cv-red)] transition-colors">
-              Tính cách
-            </a>
-            <a href="#contact" className="hover:text-[var(--cv-red)] transition-colors">
-              Liên hệ
-            </a>
-          </nav>
-
-          {/* Actions: Theme Toggle & Direct Contact */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={toggleTheme}
-              aria-label="Chuyển chế độ sáng/tối"
-              className="w-9 h-9 rounded-lg border border-[var(--line)] bg-[var(--bg-card)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-colors"
-            >
-              {theme === "dark" ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-700" />}
-            </button>
-
-            <a
-              href="#contact"
-              className="hidden sm:inline-flex items-center px-4 py-2 rounded-lg bg-[var(--cv-red)] text-white text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-opacity"
-            >
-              Liên hệ ngay
-            </a>
-
-            {/* Mobile Hamburger */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden w-9 h-9 rounded-lg border border-[var(--line)] flex items-center justify-center"
-              aria-label="Mở menu"
-            >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Dropdown */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden border-b border-[var(--line)] bg-[var(--bg-card)] px-6 py-4 flex flex-col gap-3.5 text-sm font-medium">
-            <a
-              href="#about"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="py-1 hover:text-[var(--cv-red)]"
-            >
-              Giới thiệu
-            </a>
-            <a
-              href="#skills"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="py-1 hover:text-[var(--cv-red)]"
-            >
-              Kỹ năng công việc
-            </a>
-            <a
-              href="#experience"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="py-1 hover:text-[var(--cv-red)]"
-            >
-              Kinh nghiệm làm việc
-            </a>
-            <a
-              href="#education"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="py-1 hover:text-[var(--cv-red)]"
-            >
-              Trình độ học vấn
-            </a>
-            <a
-              href="#personality"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="py-1 hover:text-[var(--cv-red)]"
-            >
-              Sở thích / Tính cách
-            </a>
-            <a
-              href="#contact"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="py-1 text-[var(--cv-red)] font-bold"
-            >
-              Thông tin liên hệ
-            </a>
-          </div>
-        )}
-      </header>
-
-      <main id="top" className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-12 sm:space-y-16">
+      <main id="top" className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-12 sm:space-y-16">
         {/* ==================== 2. HEADER & GIỚI THIỆU (TOP SECTION) ==================== */}
         <section id="about" className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left: Candidate Info & Bio */}
