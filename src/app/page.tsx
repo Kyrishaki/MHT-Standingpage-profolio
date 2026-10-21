@@ -528,16 +528,15 @@ export default function PortfolioPage() {
                     </p>
 
                     {/* DNTU-FORUM Preview Image */}
-                    <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-[var(--line-light)] mb-3 bg-slate-100 dark:bg-slate-800 shadow-sm group">
+                    <div className="relative w-full aspect-[2/1] rounded-xl overflow-hidden border border-[var(--line-light)] mb-4 bg-slate-100 dark:bg-slate-800 shadow-sm group">
                       <Image
                         src="/dntu-forum-preview.png"
                         alt="Giao diện thực tế diễn đàn sinh viên DNTU-FORUM"
                         fill
-                        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                        sizes="(max-width: 1024px) 100vw, 650px"
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
+                        sizes="(max-width: 1024px) 100vw, 700px"
                       />
                     </div>
-
 
                     {/* Tech tags */}
                     <div className="flex flex-wrap gap-1.5">
