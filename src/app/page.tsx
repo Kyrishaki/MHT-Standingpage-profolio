@@ -538,25 +538,6 @@ export default function PortfolioPage() {
                       />
                     </div>
 
-                    {/* Verified Metrics from real app */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3 text-center">
-                      <div className="p-2 rounded-lg bg-[var(--bg-raised)] border border-[var(--line-light)]">
-                        <div className="text-[10px] text-[var(--text-muted)] font-medium">CHỦ ĐỀ</div>
-                        <div className="text-xs font-bold text-[var(--text-primary)]">13 Chủ đề</div>
-                      </div>
-                      <div className="p-2 rounded-lg bg-[var(--bg-raised)] border border-[var(--line-light)]">
-                        <div className="text-[10px] text-[var(--text-muted)] font-medium">BÀI VIẾT</div>
-                        <div className="text-xs font-bold text-[var(--text-primary)]">22 Thảo luận</div>
-                      </div>
-                      <div className="p-2 rounded-lg bg-[var(--bg-raised)] border border-[var(--line-light)]">
-                        <div className="text-[10px] text-[var(--text-muted)] font-medium">QUY MÔ</div>
-                        <div className="text-xs font-bold text-[var(--text-primary)]">Nhóm 4 TV</div>
-                      </div>
-                      <div className="p-2 rounded-lg bg-[var(--bg-raised)] border border-[var(--line-light)]">
-                        <div className="text-[10px] text-[var(--text-muted)] font-medium">KẾT NỐI</div>
-                        <div className="text-xs font-bold text-[var(--cv-teal)]">Realtime Sync</div>
-                      </div>
-                    </div>
 
                     {/* Tech tags */}
                     <div className="flex flex-wrap gap-1.5">
