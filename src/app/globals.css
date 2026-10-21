@@ -1,46 +1,136 @@
 @import "tailwindcss";
 
 :root {
-  --bg-artcraft: #070709;
-  --bg-card: rgba(18, 18, 22, 0.7);
-  --border-card: rgba(255, 255, 255, 0.08);
-  --glow-orange: rgba(249, 115, 22, 0.16);
-  --glow-amber: rgba(245, 158, 11, 0.12);
-  --glow-red: rgba(239, 68, 68, 0.1);
-  --font-inter: var(--font-inter);
-  --font-space: var(--font-space-grotesk);
+  --bg: #f2f1ee;
+  --bg-raised: #faf9f7;
+  --bg-sunken: #e9e8e4;
+  --ink: #101014;
+  --ink-strong: #000000;
+  --muted: rgba(16, 16, 20, 0.62);
+  --faint: rgba(16, 16, 20, 0.42);
+  --line: rgba(16, 16, 20, 0.14);
+  --line-strong: rgba(16, 16, 20, 0.4);
+  --accent: #2d81ff;
+  --accent-ink: #1659c4;
+  --invert-bg: #101014;
+  --invert-fg: #f2f1ee;
+  --danger: #b3261e;
+  --scanline: rgba(16, 16, 20, 0.03);
 }
 
-/* Light / Recruiter Mode Variables */
-.recruiter-mode {
-  --bg-artcraft: #f8fafc;
-  --bg-card: #ffffff;
-  --border-card: rgba(203, 213, 225, 0.8);
-  --glow-orange: transparent;
-  --glow-amber: transparent;
-  --glow-red: transparent;
+[data-theme="dark"],
+html.dark {
+  --bg: #0b0b0c;
+  --bg-raised: #141416;
+  --bg-sunken: #060607;
+  --ink: #f0eff1;
+  --ink-strong: #ffffff;
+  --muted: rgba(240, 239, 241, 0.62);
+  --faint: rgba(240, 239, 241, 0.42);
+  --line: rgba(240, 239, 241, 0.14);
+  --line-strong: rgba(240, 239, 241, 0.4);
+  --accent: #3b82f6;
+  --accent-ink: #60a5fa;
+  --invert-bg: #f0eff1;
+  --invert-fg: #0b0b0c;
+  --danger: #ef4444;
+  --scanline: rgba(255, 255, 255, 0.03);
 }
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
-}
-
-html.recruiter-mode-active {
-  color-scheme: light;
+  background-color: var(--bg);
+  color: var(--ink);
 }
 
 body {
-  background-color: var(--bg-artcraft);
-  color: #ededed;
+  background-color: var(--bg);
+  color: var(--ink);
   font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-.recruiter-mode-active body {
-  background-color: #f8fafc;
-  color: #0f172a;
+/* Typography tokens */
+.font-display {
+  font-family: var(--font-archivo), var(--font-inter), sans-serif;
+}
+
+.font-editorial {
+  font-family: var(--font-instrument), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.font-mono-hud {
+  font-family: var(--font-geist-mono), monospace;
+}
+
+.hud-label {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+/* Common border utilities */
+.border-line {
+  border-color: var(--line);
+}
+
+.border-line-strong {
+  border-color: var(--line-strong);
+}
+
+/* Background utilities */
+.bg-bg {
+  background-color: var(--bg);
+}
+
+.bg-raised {
+  background-color: var(--bg-raised);
+}
+
+.bg-sunken {
+  background-color: var(--bg-sunken);
+}
+
+.bg-invert-bg {
+  background-color: var(--invert-bg);
+}
+
+.text-invert-fg {
+  color: var(--invert-fg);
+}
+
+.text-ink {
+  color: var(--ink);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.text-faint {
+  color: var(--faint);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink);
 }
 
 /* Lenis smooth scrolling styles */
@@ -53,64 +143,28 @@ html.lenis body {
   scroll-behavior: auto !important;
 }
 
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #09090b;
-}
-
-.recruiter-mode-active ::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #27272a;
-  border-radius: 9999px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #f97316;
-}
-
-.recruiter-mode-active ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-}
-
-.recruiter-mode-active ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-/* Mesh Gradient Animations */
-@keyframes meshFloat {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(1);
+/* Marquee Animation */
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0%);
   }
-  33% {
-    transform: translate(30px, -40px) scale(1.08);
-  }
-  66% {
-    transform: translate(-25px, 25px) scale(0.95);
+  to {
+    transform: translateX(-50%);
   }
 }
 
-@keyframes spinSlow {
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Radar rotation */
+@keyframes radarSlow {
   from {
     transform: rotate(0deg);
   }
@@ -119,89 +173,6 @@ html.lenis body {
   }
 }
 
-@keyframes subtlePulse {
-  0%, 100% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.03);
-  }
-}
-
-.animate-mesh-float {
-  animation: meshFloat 18s ease-in-out infinite;
-}
-
-.animate-spin-slow {
-  animation: spinSlow 20s linear infinite;
-}
-
-.animate-subtle-pulse {
-  animation: subtlePulse 6s ease-in-out infinite;
-}
-
-/* Glassmorphism helpers */
-.glass-artcraft {
-  background: rgba(14, 14, 18, 0.72);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-artcraft:hover {
-  border-color: rgba(249, 115, 22, 0.35);
-}
-
-.glass-badge {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Print Styles for Recruiter CV / Export PDF */
-@media print {
-  @page {
-    margin: 1.2cm;
-    size: A4 portrait;
-  }
-
-  body {
-    background: #ffffff !important;
-    color: #000000 !important;
-    font-size: 11pt;
-    line-height: 1.4;
-  }
-
-  /* Hide interactive elements, canvas, spotlights, and floating navbars in print */
-  .no-print,
-  #controllable-canvas,
-  .mode-toggle-bar,
-  .ambient-glow,
-  .project-drawer-overlay,
-  button:not(.print-keep) {
-    display: none !important;
-  }
-
-  .print-page-break {
-    page-break-before: always;
-  }
-
-  .glass-artcraft {
-    background: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-    color: #0f172a !important;
-  }
-
-  a {
-    color: #0f172a !important;
-    text-decoration: underline;
-  }
-
-  h1, h2, h3, h4 {
-    color: #000000 !important;
-  }
+.animate-radar-spin {
+  animation: radarSlow 120s linear infinite;
 }

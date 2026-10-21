@@ -1,7 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Archivo, Instrument_Serif, Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  variable: "--font-archivo",
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument",
+  display: "swap",
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -9,61 +23,43 @@ const inter = Inter({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#070709",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f2f1ee" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0b0c" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dntu-forum.vercel.app"),
-  title: "MAI HOÀNG TUẤN — Fullstack Developer | Portfolio & Interactive CV",
+  metadataBase: new URL("https://getartcraft.com"),
+  title: "ArtCraft — Controllable AI for Artists",
   description:
-    "Portfolio kiêm CV tương tác cao của Mai Hoàng Tuấn - Lập trình viên Fullstack. Dự án trọng điểm DNTU-FORUM, kỹ năng Next.js, ASP.NET Core, React Native, Supabase, Tailwind CSS.",
-  keywords: [
-    "Mai Hoàng Tuấn",
-    "Fullstack Developer",
-    "DNTU-FORUM",
-    "Lập trình viên",
-    "Next.js",
-    "ASP.NET Core",
-    "Đồng Nai",
-    "Portfolio",
-    "Interactive CV",
-  ],
-  authors: [{ name: "Mai Hoàng Tuấn", url: "https://dntu-forum.vercel.app" }],
-  creator: "Mai Hoàng Tuấn",
+    "ArtCraft is the open-source desktop app for generating AI video and images — built for artists who want real control.",
   openGraph: {
     type: "website",
-    locale: "vi_VN",
-    title: "MAI HOÀNG TUẤN — Fullstack Developer | Portfolio & Interactive CV",
+    locale: "en_US",
+    url: "https://getartcraft.com",
+    title: "ArtCraft — Controllable AI for Artists",
     description:
-      "Khám phá trang portfolio tương tác nghệ thuật lấy cảm hứng từ ArtCraft, trình bày dự án DNTU-FORUM và hệ sinh thái kỹ năng của Mai Hoàng Tuấn.",
-    siteName: "Mai Hoàng Tuấn Portfolio",
-    images: [
-      {
-        url: "/dntu-forum-preview.png",
-        width: 1200,
-        height: 630,
-        alt: "Mai Hoàng Tuấn - Fullstack Developer Portfolio",
-      },
-    ],
+      "ArtCraft is the open-source desktop app for generating AI video and images — built for artists who want real control.",
+    siteName: "ArtCraft",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MAI HOÀNG TUẤN — Fullstack Developer",
+    title: "ArtCraft — Controllable AI for Artists",
     description:
-      "Interactive CV & Portfolio phong cách ArtCraft của Fullstack Developer Mai Hoàng Tuấn.",
-    images: ["/dntu-forum-preview.png"],
+      "ArtCraft is the open-source desktop app for generating AI video and images — built for artists who want real control.",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/artcraft-icon.svg",
   },
 };
 
@@ -74,10 +70,11 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="vi"
-      className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
+      lang="en"
+      className={`${archivo.variable} ${instrumentSerif.variable} ${inter.variable} ${geistMono.variable}`}
+      data-theme="light"
     >
-      <body className="min-h-screen bg-[#070709] text-zinc-100 selection:bg-orange-500/30 selection:text-orange-200">
+      <body className="bg-[var(--bg)] text-[var(--ink)] antialiased transition-colors duration-200">
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
