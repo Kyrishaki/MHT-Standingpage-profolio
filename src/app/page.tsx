@@ -229,23 +229,23 @@ export default function PortfolioPage() {
 
           {/* Right: Portrait with the authentic CV orange/coral halo arch */}
           <div className="lg:col-span-4 flex justify-center lg:justify-end">
-            <div className="relative w-64 sm:w-72 aspect-[395/575]">
+            <div className="relative w-64 sm:w-72 aspect-[768/1024] rounded-3xl border-2 border-[var(--line)] bg-[var(--bg-card)] overflow-hidden shadow-md flex items-end justify-center">
               {/* Warm Orange-Coral Circle Halo Background from CV */}
               <div
-                className="absolute inset-x-2 top-4 bottom-8 rounded-full opacity-90"
+                className="absolute inset-x-4 top-8 aspect-square rounded-full"
                 style={{
                   background: "radial-gradient(circle at 60% 40%, #f97316 0%, #ea580c 60%, #c2410c 100%)",
                 }}
               />
 
-              {/* Photo with rounded rectangular border outline */}
-              <div className="relative z-10 w-full h-full rounded-3xl border-2 border-[var(--line)] bg-transparent overflow-hidden shadow-lg">
+              {/* Photo transparent cut-out */}
+              <div className="relative z-10 w-full h-full">
                 <Image
-                  src="/avatar.jpg"
+                  src="/avatar.png"
                   alt="Mai Hoàng Tuấn - Fullstack Developer"
                   fill
                   priority
-                  className="object-cover object-center"
+                  className="object-contain object-bottom"
                   sizes="(max-width: 768px) 280px, 320px"
                 />
               </div>
