@@ -1,26 +1,207 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-artcraft: #070709;
+  --bg-card: rgba(18, 18, 22, 0.7);
+  --border-card: rgba(255, 255, 255, 0.08);
+  --glow-orange: rgba(249, 115, 22, 0.16);
+  --glow-amber: rgba(245, 158, 11, 0.12);
+  --glow-red: rgba(239, 68, 68, 0.1);
+  --font-inter: var(--font-inter);
+  --font-space: var(--font-space-grotesk);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Light / Recruiter Mode Variables */
+.recruiter-mode {
+  --bg-artcraft: #f8fafc;
+  --bg-card: #ffffff;
+  --border-card: rgba(203, 213, 225, 0.8);
+  --glow-orange: transparent;
+  --glow-amber: transparent;
+  --glow-red: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+html.recruiter-mode-active {
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-artcraft);
+  color: #ededed;
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.recruiter-mode-active body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Lenis smooth scrolling styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+.recruiter-mode-active ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+}
+
+.recruiter-mode-active ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+.recruiter-mode-active ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Mesh Gradient Animations */
+@keyframes meshFloat {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.08);
+  }
+  66% {
+    transform: translate(-25px, 25px) scale(0.95);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.03);
+  }
+}
+
+.animate-mesh-float {
+  animation: meshFloat 18s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+.animate-subtle-pulse {
+  animation: subtlePulse 6s ease-in-out infinite;
+}
+
+/* Glassmorphism helpers */
+.glass-artcraft {
+  background: rgba(14, 14, 18, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-artcraft:hover {
+  border-color: rgba(249, 115, 22, 0.35);
+}
+
+.glass-badge {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Print Styles for Recruiter CV / Export PDF */
+@media print {
+  @page {
+    margin: 1.2cm;
+    size: A4 portrait;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+
+  /* Hide interactive elements, canvas, spotlights, and floating navbars in print */
+  .no-print,
+  #controllable-canvas,
+  .mode-toggle-bar,
+  .ambient-glow,
+  .project-drawer-overlay,
+  button:not(.print-keep) {
+    display: none !important;
+  }
+
+  .print-page-break {
+    page-break-before: always;
+  }
+
+  .glass-artcraft {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    color: #0f172a !important;
+  }
+
+  a {
+    color: #0f172a !important;
+    text-decoration: underline;
+  }
+
+  h1, h2, h3, h4 {
+    color: #000000 !important;
+  }
 }
